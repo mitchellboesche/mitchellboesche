@@ -103,21 +103,34 @@ const fmt = (d: Date) =>
     </div>
   </section>
 
-  <section class="section about" id="about">
-    <div class="about-side">
-      <h2>About</h2>
-      <Image src={portrait} alt="Mitchell Boesche" width={560} class="about-photo" />
-    </div>
-    <div class="about-body">
-      <p>
-        I'm a data engineer based in Minnesota. Most of my work is data architecture: modeling
-        identities across systems, keeping history trustworthy, and making warehouses that analysts
-        actually enjoy querying.
-      </p>
-      <p>
-        Away from the keyboard you'll find me fishing, at the grill, or out in the garden. This site
-        is built with Astro and hosted on GitHub Pages.
-      </p>
+  <section class="section" id="about">
+    <div class="about-row">
+      <Image src={portrait} alt="Portrait of Mitchell Boesche" width={560} class="about-photo" />
+      <div class="about-content">
+        <h2 class="about-heading">About</h2>
+        <div class="about-name">
+          <span class="about-title">Mitchell Boesche</span>
+          <span class="about-role">Data engineer · Minnesota</span>
+        </div>
+        <p class="about-lead">
+          Most of my work is data architecture: modeling identities across systems, keeping history
+          trustworthy, and making warehouses that analysts actually enjoy querying.
+        </p>
+        <p class="about-text">
+          Away from the keyboard you'll find me fishing, at the grill, or out in the garden. This site
+          is built with Astro and hosted on GitHub Pages.
+        </p>
+        <dl class="about-facts">
+          <div>
+            <dt>Works in</dt>
+            <dd><span>SQL</span><span>Python</span><span>Snowflake</span></dd>
+          </div>
+          <div>
+            <dt>Off the clock</dt>
+            <dd><span>Fishing</span><span>Grilling</span><span>Gardening</span></dd>
+          </div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -139,16 +152,52 @@ const fmt = (d: Date) =>
 </Base>
 
 <style is:global>
-  .section.about { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
-  .section.about .about-body { grid-column: auto; }
-  @media (max-width: 760px) { .section.about { grid-template-columns: minmax(0, 1fr); } }
-  .about-side { display: flex; flex-direction: column; gap: 24px; }
+  .about-row {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: clamp(36px, 6vw, 80px);
+    align-items: center;
+  }
   .about-photo {
     width: 100%;
-    max-width: 280px;
     height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: 50% 20%;
     border-radius: 16px;
+    box-shadow: 0 24px 48px -24px rgba(22, 24, 29, 0.4);
+  }
+  .about-content { display: flex; flex-direction: column; gap: 18px; max-width: 40em; }
+  .about-heading {
+    margin: 0 0 6px;
+    font-size: clamp(40px, 5vw, 56px) !important;
+    line-height: 1;
+    letter-spacing: -0.035em !important;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .about-heading::after {
+    content: '';
+    position: absolute; left: 0; bottom: 0;
+    width: 48px; height: 4px; border-radius: 2px;
+    background: var(--accent);
+  }
+  .about-name { display: flex; flex-direction: column; gap: 2px; }
+  .about-title { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .about-role { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: 0.02em; }
+  .about-lead { margin: 0; font-size: 19px; line-height: 1.6; color: var(--ink-2); }
+  .about-text { margin: 0; color: var(--muted); }
+  .about-facts { display: flex; flex-wrap: wrap; gap: 20px 40px; margin: 6px 0 0; padding-top: 20px; border-top: 1px solid var(--line); }
+  .about-facts div { display: flex; flex-direction: column; gap: 10px; }
+  .about-facts dt { font-size: 13px; color: var(--faint); }
+  .about-facts dd { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .about-facts dd span {
+    font-size: 14px; padding: 6px 12px; border-radius: 999px;
+    background: var(--surface); border: 1px solid var(--line); color: var(--ink-2);
+  }
+  @media (max-width: 760px) {
+    .about-row { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .about-photo { max-width: 320px; }
   }
 </style>
