@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { site, projects } from '../data/site';
+import { Image } from 'astro:assets';
+import portrait from '../assets/20230411_Mitchell_Boesche.jpg';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -102,7 +104,10 @@ const fmt = (d: Date) =>
   </section>
 
   <section class="section about" id="about">
-    <h2>About</h2>
+    <div class="about-side">
+      <h2>About</h2>
+      <Image src={portrait} alt="Mitchell Boesche" width={560} class="about-photo" />
+    </div>
     <div class="about-body">
       <p>
         I'm a data engineer based in Minnesota. Most of my work is data architecture: modeling
@@ -132,3 +137,18 @@ const fmt = (d: Date) =>
     </div>
   </section>
 </Base>
+
+<style is:global>
+  .section.about { grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+  .section.about .about-body { grid-column: auto; }
+  @media (max-width: 760px) { .section.about { grid-template-columns: minmax(0, 1fr); } }
+  .about-side { display: flex; flex-direction: column; gap: 24px; }
+  .about-photo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+</style>
