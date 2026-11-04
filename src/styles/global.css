@@ -192,3 +192,10 @@ a:hover { color: var(--accent); }
 .prose blockquote { margin: 1.5em 0; padding-left: 20px; border-left: 3px solid var(--line-strong); color: var(--muted); }
 .prose img { max-width: 100%; height: auto; border-radius: 10px; }
 .back { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+
+/* Tables in blog posts */
+.prose table { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; line-height: 1.5; display: block; overflow-x: auto; }
+.prose th { text-align: left; font-weight: 600; color: var(--ink); padding: 10px 14px; border-bottom: 2px solid var(--line-strong); white-space: nowrap; }
+.prose td { padding: 10px 14px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.prose tbody tr:hover { background: var(--surface); }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.5em 0 1.5em; }
