@@ -5,8 +5,8 @@ export const site = {
   description:
     'Data engineer in Minnesota. Writing about SQL, Python, Snowflake and side projects.',
   email: 'mjboesche123@gmail.com',
-  github: 'https://github.com/mjboesche',
-  linkedin: 'https://www.linkedin.com/in/mitchellboesche',
+  github: 'https://github.com/mitchellboesche',
+  linkedin: 'https://www.linkedin.com/in/mitchell-boesche-b15947135/',
 };
 
 export type Project = {
