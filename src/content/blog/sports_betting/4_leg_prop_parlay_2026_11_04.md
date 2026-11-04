@@ -1,7 +1,7 @@
 ---
 title: "Wolves at Rockets: a 4-leg prop parlay, by the numbers"
 description: Four player props for Timberwolves–Rockets on Nov. 4, picked from box scores, projections and injury news.
-pubDate: 2026-11-04
+pubDate: 2026-11-04T14:30:00-06:00
 tag: Sports betting
 ---
 

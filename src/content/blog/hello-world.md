@@ -1,7 +1,7 @@
 ---
 title: Welcome!
 description: The site is live. Here's what I'll be writing about.
-pubDate: 2026-11-4
+pubDate: 2026-11-04T10:30:00-06:00
 tag: Meta
 ---
 
