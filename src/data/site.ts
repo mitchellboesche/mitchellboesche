@@ -36,7 +36,7 @@ export const projects: Project[] = [
     title: 'Mortgage payoff planner',
     blurb: 'A small web app for testing extra-payment scenarios and seeing the payoff date move.',
     tags: 'web app · finance',
-    href: '#', // TODO
+    href: '/apps/payoff',
     icon: 'home',
   },
 ];
