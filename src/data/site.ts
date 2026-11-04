@@ -22,7 +22,7 @@ export const projects: Project[] = [
     title: 'NFL data warehouse',
     blurb: 'A local DuckDB warehouse with a weekly refresh, feeding fantasy and betting analysis.',
     tags: 'python · duckdb · sql',
-    href: '#', // TODO: repo or write-up link
+    href: '/blog/nfl-warehouse-duckdb/', // TODO: repo or write-up link
     icon: 'db',
   },
   {
