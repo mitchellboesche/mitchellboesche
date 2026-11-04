@@ -22,14 +22,14 @@ export const projects: Project[] = [
     title: 'NFL data warehouse',
     blurb: 'A local DuckDB warehouse with a weekly refresh, feeding fantasy and betting analysis.',
     tags: 'python · duckdb · sql',
-    href: '/blog/nfl-warehouse-duckdb/', // TODO: repo or write-up link
+    href: '/blog/fantasy_football/nfl-warehouse-duckdb/',
     icon: 'db',
   },
   {
     title: 'Fantasy draft guide',
     blurb: 'An interactive draft board built on a market-blend ranking model.',
     tags: 'modeling · web',
-    href: '#', // TODO
+    href: '/blog/fantasy_football/#',
     icon: 'chart',
   },
   {
