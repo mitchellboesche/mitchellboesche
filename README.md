@@ -1,6 +1,6 @@
-# mitchell-site
+# www.mitchellboesche.com
 
-Personal site and blog. Astro, deployed to GitHub Pages with GitHub Actions.
+Personal site and blog relating to all things I enjoy!
 
 ## Run locally
 
