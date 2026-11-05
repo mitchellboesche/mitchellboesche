@@ -1,0 +1,48 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { getCategories } from '../../../data/categories';
+
+// One page per folder inside src/content/blog/ (e.g. /blog/sports_betting/).
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => import.meta.env.DEV || !data.draft);
+  const categories = await getCategories();
+  return categories.map((c) => ({
+    params: { category: c.slug },
+    props: {
+      label: c.label,
+      posts: posts
+        .filter((p) => p.id.startsWith(`${c.slug}/`))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { label, posts } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<Base title={label} description={`Posts about ${label.toLowerCase()}.`}>
+  <section class="section" style="border-top: 0">
+    <a class="back" href={`${base}/blog/`}>← All writing</a>
+    <div class="section-head"><h2>{label}</h2></div>
+    <ul class="posts">
+      {posts.map((post) => (
+        <li>
+          <a class="post-row" href={`${base}/blog/${post.id}/`}>
+            <span class="post-meta">{fmt(post.data.pubDate)}{post.data.tag && ` · ${post.data.tag}`}</span>
+            <span class="post-main">
+              <span class="post-title">
+                {post.data.title}
+                {post.data.draft && <span class="draft-badge">Draft</span>}
+              </span>
+              <span class="post-desc">{post.data.description}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
