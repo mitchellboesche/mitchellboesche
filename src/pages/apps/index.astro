@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Add a new entry here whenever you build another app.
+const apps = [
+  {
+    title: 'Mortgage payoff calculator',
+    blurb: 'See how extra monthly payments move your payoff date and how much interest they save.',
+    href: `${base}/apps/mortgage_payoff_calculator/`,
+    tags: 'finance · calculator',
+  },
+];
+---
+
+<Base title="Apps" description="Small tools and calculators I've built.">
+  <section class="section" style="border-top: 0">
+    <div class="section-head"><h2>Apps</h2></div>
+    <div class="project-grid">
+      {apps.map((app) => (
+        <a class="project-card" href={app.href}>
+          <span class="project-title">{app.title}</span>
+          <span class="project-blurb">{app.blurb}</span>
+          <span class="project-tags">{app.tags}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
